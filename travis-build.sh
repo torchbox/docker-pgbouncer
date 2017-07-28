@@ -14,8 +14,7 @@ printf '####################################################################\n'
 printf '>>> Building Docker image.\n\n'
 docker build --pull -t torchbox/pgbouncer:$COMMIT .
 
-# If this is a release, push the Docker image to Docker Hub.
-if [ "$TRAVIS_PULL_REQUEST" = "false" -a -n "$TRAVIS_TAG" ]; then
+if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then
 	printf '####################################################################\n'
 	printf '>>> Creating release.\n\n'
 
